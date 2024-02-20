@@ -53,7 +53,10 @@ createApp({
 
         addElement() {
 
-         
+            // controllo per verificare se il campo di input è vuoto
+            if (this.newElement.trim() === "") {
+                return;
+            }
 
             // aggiungo il testo scritto dentro il campo di input alla lista
            
