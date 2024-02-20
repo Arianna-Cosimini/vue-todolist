@@ -30,7 +30,7 @@
             <ul v-if="toDoList.length > 0" class="list-group mb-5 ">
                 <li v-for="(currentTodo,index) in toDoList"
                     class="list-group-item d-flex justify-content-between align-items-center">
-                    <span :class="currentTodo.done == true ? 'done' : '' ">
+                    <span @changeDone() :class="currentTodo.done == true ? 'done' : '' ">
                         {{currentTodo.text}}
                     </span>
 
@@ -44,7 +44,7 @@
                 <span>Ottimo lavoro! <br> Hai completato la lista delle cose da fare!</span>
             </div>
 
-            <form>
+            <form @submit.prevent="addElement()">  <!-- bonus: richiamo il metodo addElement quando premo su enter -->
                 <div class="mb-3">
                     <label for="newElement" class="form-label">Aggiungi un nuovo elemento alla tua lista</label>
                     <input type="text" 
@@ -52,7 +52,10 @@
                     id="newElement" 
                     aria-describedby="aggiungi nuovo elemento"
                     v-model="newElement"
-                    >
+                    @keydown.enter.prevent="addElement" 
+                    > <!-- bonus: richiamo il metodo addElement quando premo su enter -->
+
+                    <!-- richiamo il metodo addElement quando premo sul bottone per aggiungere elementi alla lista -->
                     <button @click="addElement()" 
                     type="button" 
                     class="btn btn-primary">Aggiungi</button>

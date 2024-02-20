@@ -64,6 +64,12 @@ createApp({
             // cancello il contenuto del campo di input
             this.newElement = "";
 
+        },
+
+        changeDone(){
+            if(this.toDoList.done == true){
+                this.toDoList.done == false
+            }
         }
 
 
