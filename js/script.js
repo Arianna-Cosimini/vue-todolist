@@ -5,6 +5,10 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            
+            newElement: "",
+
+
             toDoList: [
                 {
                     text: "Fare la spesa",
@@ -32,6 +36,7 @@ createApp({
                 },
             ]
 
+
             
             
         }
@@ -41,6 +46,11 @@ createApp({
 
     methods: {
 
-        
+        // rimuovo una proprietà dall'oggetto
+        deleteElement(todoDone){
+            this.toDoList.splice(todoDone,1)
+        }
+
+
     }
 }).mount('#app');
