@@ -53,6 +53,8 @@ createApp({
 
         addElement() {
 
+         
+
             // aggiungo il testo scritto dentro il campo di input alla lista
            
 
@@ -66,12 +68,9 @@ createApp({
 
         },
 
-        changeDone(){
-            if(this.toDoList.done == true){
-                this.toDoList.done == false
-            }
-        }
-
+        inverterDone(toDoList) {
+            toDoList.done =! toDoList.done;
+          },
 
     }
 }).mount('#app');

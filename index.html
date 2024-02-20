@@ -30,7 +30,7 @@
             <ul v-if="toDoList.length > 0" class="list-group mb-5 ">
                 <li v-for="(currentTodo,index) in toDoList"
                     class="list-group-item d-flex justify-content-between align-items-center">
-                    <span @changeDone() :class="currentTodo.done == true ? 'done' : '' ">
+                    <span @click="inverterDone(currentTodo)" :class="currentTodo.done == true ? 'done' : '' ">
                         {{currentTodo.text}}
                     </span>
 
