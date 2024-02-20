@@ -27,26 +27,38 @@
 
             <h1 class="mb-5">To-do list</h1>
 
-            <ul v-if="toDoList.length > 0" class="list-group">
-                <li 
-                    v-for="(currentTodo,index) in toDoList"
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                    
-                    
-                >
+            <ul v-if="toDoList.length > 0" class="list-group mb-5 ">
+                <li v-for="(currentTodo,index) in toDoList"
+                    class="list-group-item d-flex justify-content-between align-items-center">
                     <span :class="currentTodo.done == true ? 'done' : '' ">
                         {{currentTodo.text}}
                     </span>
 
                     <!-- applicato metodo per rimuovere elemento al click sull'icona -->
                     <i @click="deleteElement(index)" class="fa-regular fa-circle-xmark"></i>
-                    
+
                 </li>
             </ul>
 
             <div v-else class="bg-success-subtle text-center p-5 ">
                 <span>Ottimo lavoro! <br> Hai completato la lista delle cose da fare!</span>
             </div>
+
+            <form>
+                <div class="mb-3">
+                    <label for="newElement" class="form-label">Aggiungi un nuovo elemento alla tua lista</label>
+                    <input type="text" 
+                    class="form-control mb-3" 
+                    id="newElement" 
+                    aria-describedby="aggiungi nuovo elemento"
+                    v-model="newElement"
+                    >
+                    <button @click="addElement()" 
+                    type="button" 
+                    class="btn btn-primary">Aggiungi</button>
+            </form>
+
+
         </div>
     </div>
 

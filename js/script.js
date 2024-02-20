@@ -5,7 +5,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            
+
             newElement: "",
 
 
@@ -49,6 +49,21 @@ createApp({
         // rimuovo una proprietà dall'oggetto
         deleteElement(todoDone){
             this.toDoList.splice(todoDone,1)
+        },
+
+        addElement() {
+
+            // aggiungo il testo scritto dentro il campo di input alla lista
+           
+
+            this.toDoList.push({
+                text: this.newElement,
+                done: false 
+              });
+
+            // cancello il contenuto del campo di input
+            this.newElement = "";
+
         }
 
 
